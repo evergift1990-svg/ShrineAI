@@ -1,0 +1,36 @@
+---
+description: SHRINE AI Aggregator - Core Coding Standards
+globs: ["**/*.ts", "**/*.tsx"]
+---
+
+# SHRINE Coding Standards
+
+## Architecture
+- **Clean Architecture**: Separate concerns - types, providers, hooks, components, API
+- **DRY Principle**: No duplicated logic. Use abstractions.
+- **Strategy Pattern**: All AI providers implement a common interface.
+
+## TypeScript
+- Strict mode enabled. No `any` types.
+- All functions must have explicit return types.
+- Use `interface` for object shapes, `type` for unions/aliases.
+- Export types from `types/` directory.
+
+## Components
+- Use functional components with explicit prop interfaces.
+- Colocate hooks with their consuming components when single-use.
+- Shared hooks go in `hooks/` directory.
+
+## Streaming
+- Always use streaming for AI responses (ReadableStream or Vercel AI SDK).
+- Never use blocking `fetch` for AI calls.
+
+## Error Handling
+- Every AI provider call must have graceful error handling.
+- UI must show degradation state per-model, never crash entirely.
+
+## Styling
+- Use Tailwind CSS utility classes.
+- Follow Shrine design tokens: zinc-950 bg, amber-400 accents.
+- Use Framer Motion for animations.
+- ShadcnUI for base components.
