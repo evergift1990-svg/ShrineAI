@@ -43,8 +43,11 @@ export function ModelContextProvider({ children }: { children: React.ReactNode }
             const saved = localStorage.getItem('shrine-model-state');
             if (saved) {
                 const parsed = JSON.parse(saved);
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 if (parsed.selectedProvider) setSelectedProvider(parsed.selectedProvider);
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 if (parsed.activeProviders) setActiveProviders(parsed.activeProviders);
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 if (parsed.viewMode) setViewMode(parsed.viewMode);
             }
         } catch {
