@@ -1,0 +1,46 @@
+﻿
+> shrine-ai@0.1.0 lint
+> eslint
+
+
+C:\Users\Misba\OneDrive\Desktop\ShrineAI\src\app\page.tsx
+  22:11  warning  'viewMode' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Misba\OneDrive\Desktop\ShrineAI\src\components\chat\ChatInterface.tsx
+  19:10  warning  'ScrollArea' is defined but never used              @typescript-eslint/no-unused-vars
+  36:56  warning  'clearMessages' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Misba\OneDrive\Desktop\ShrineAI\src\components\chat\ChatMessage.tsx
+   21:57  warning  'ModelProvider' is defined but never used  @typescript-eslint/no-unused-vars
+  152:65  warning  'node' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\Misba\OneDrive\Desktop\ShrineAI\src\components\chat\GridView.tsx
+  23:25  warning  'ChatMessageType' is defined but never used    @typescript-eslint/no-unused-vars
+  27:68  warning  'clearAll' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Misba\OneDrive\Desktop\ShrineAI\src\components\layout\Header.tsx
+  130:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\Misba\OneDrive\Desktop\ShrineAI\src\components\layout\Sidebar.tsx
+  54:9  warning  'activeProviders' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Misba\OneDrive\Desktop\ShrineAI\src\contexts\ModelContext.tsx
+  46:46  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\Misba\OneDrive\Desktop\ShrineAI\src\contexts\ModelContext.tsx:46:46
+  44 |             if (saved) {
+  45 |                 const parsed = JSON.parse(saved);
+> 46 |                 if (parsed.selectedProvider) setSelectedProvider(parsed.selectedProvider);
+     |                                              ^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  47 |                 if (parsed.activeProviders) setActiveProviders(parsed.activeProviders);
+  48 |                 if (parsed.viewMode) setViewMode(parsed.viewMode);
+  49 |             }  react-hooks/set-state-in-effect
+
+Γ£û 10 problems (1 error, 9 warnings)
+
