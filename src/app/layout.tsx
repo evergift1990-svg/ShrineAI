@@ -13,6 +13,7 @@ import { Inter } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryProvider } from "@/components/providers/QueryProvider";
 import { ModelContextProvider } from "@/contexts/ModelContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -43,6 +44,7 @@ export default function RootLayout({
             </TooltipProvider>
           </ModelContextProvider>
         </QueryProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
